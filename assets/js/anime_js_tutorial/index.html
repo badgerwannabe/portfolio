@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Js Tutorial</title>
+
+    <style>
+      .el {
+        background-color: red;
+
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+      }
+    </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+      integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <button class="start">Start</button>
+    <div class="el el1"></div>
+    <div class="el el2"></div>
+    <div class="el el3"></div>
+    <div class="el el4"></div>
+    <pre id="result"></pre>
+
+    <script>
+      const btnStart = document.querySelector(".start");
+
+      let product = {
+        price: 1000,
+      };
+
+      btnStart.addEventListener("click", function () {
+        anime({
+          targets: [".el1", ".el4", product],
+          background: "#04a75b",
+          opacity: 0.5,
+          translateX: 350,
+          rotate: "45",
+          skewX: "45",
+          price: 30000,
+          round: 1,
+          update: function () {
+            document.querySelector("#result").innerHTML = product.price;
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

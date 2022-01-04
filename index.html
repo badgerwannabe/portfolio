@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Dmytro Zozulia Portfolio</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+      integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <h3 id="top-logo-text">Dmytro Zozulia</h3>
+      <div id="sectionHeading" class="hidden"><h1>Section name</h1></div>
+
+      <ul id="nav-menu">
+        <li data-page="home"><a href="#">Home</a></li>
+        <li data-page="projects" id="project-link">
+          <a href="#">Projects</a>
+        </li>
+        <li data-page="about"><a href="#">About</a></li>
+        <li data-page="contact"><a href="#">Contact</a></li>
+      </ul>
+    </header>
+    <!-- src="assets/images/hero-image-ball.png" -->
+    <main>
+      <section id="hero-section" data-index="0" class="home">
+        <div>
+          <h3 class="explanatory-text">I am here to transform</h3>
+          <h1 class="neon-text">your ideas into websites</h1>
+
+          <!-- <svg
+            id="animated-ball"
+            width="521"
+            height="561"
+            viewBox="0 0 521 561"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="OBJECTS">
+              <g>
+                <polygon
+                  points="207.3 109.86 161.25 179.12 79.45 215.6 18.49 179.12 10.76 96.85 54.42 24.97 170.54 10.91 207.3 109.86"
+                  style="
+                    fill: none;
+                    stroke: rgb(255, 255, 255);
+                    stroke-miterlimit: 10;
+                  "
+                />
+                <line
+                  x1="207.3"
+                  y1="109.86"
+                  x2="54.42"
+                  y2="24.97"
+                  style="
+                    fill: none;
+                    stroke: rgb(255, 255, 255);
+                    stroke-miterlimit: 10;
+                  "
+                />
+                <line
+                  x1="161.25"
+                  y1="179.12"
+                  x2="120.82"
+                  y2="61.62"
+                  style="
+                    fill: none;
+                    stroke: rgb(255, 255, 255);
+                    stroke-miterlimit: 10;
+                  "
+                />
+                <polyline
+                  points="120.82 61.62 79.45 215.6 10.76 96.85 120.82 61.62 170.54 10.91"
+                  style="
+                    fill: none;
+                    stroke: rgb(255, 255, 255);
+                    stroke-miterlimit: 10;
+                  "
+                />
+                <line
+                  x1="120.82"
+                  y1="61.62"
+                  x2="18.49"
+                  y2="179.12"
+                  style="
+                    fill: none;
+                    stroke: rgb(255, 255, 255);
+                    stroke-miterlimit: 10;
+                  "
+                />
+                <line
+                  x1="79.46"
+                  y1="215.6"
+                  x2="54.42"
+                  y2="24.97"
+                  style="
+                    fill: none;
+                    stroke: rgb(255, 255, 255);
+                    stroke-miterlimit: 10;
+                  "
+                />
+                <line
+                  x1="10.76"
+                  y1="96.85"
+                  x2="207.3"
+                  y2="109.86"
+                  style="
+                    fill: none;
+                    stroke: rgb(255, 255, 255);
+                    stroke-miterlimit: 10;
+                  "
+                />
+              </g>
+            </g>
+          </svg> -->
+          <div id="main-image-animation">
+            <img
+              id="animation-code-block"
+              width="70%"
+              src="assets/images/hero-imag/code-block-02-04.svg"
+            />
+            <img
+              width="70%"
+              style="margin-left: 4rem"
+              src="assets/images/hero-imag/video-block.svg"
+            />
+            <img width="70%" src="assets/images/hero-imag/img-block.svg" />
+          </div>
+        </div>
+        <ul id="social-hero-section" class="social-links">
+          <li>
+            <img class="social-icon" src="./assets/images/Instagram.png" />
+          </li>
+          <li>
+            <img class="social-icon" src="./assets/images/Linkedin.png" />
+          </li>
+          <li><img class="social-icon" src="./assets/images/Behance.png" /></li>
+          <li>
+            <img class="social-icon" src="./assets/images/Dribbble.png" />
+          </li>
+          <li>
+            <img class="social-icon" src="./assets/images/Pinterest.png" />
+          </li>
+        </ul>
+      </section>
+
+      <section id="projects-section" data-index="1" class="projects">
+        <a href="https://cityresident.site" target="_blank"
+          ><article class="project-item" id="smm-course-project">
+            <div class="content-border">
+              <h3>SMM all inclusive 2.0</h3>
+              <p>
+                <span class="bold-paragraph">Description: </span><br />
+                Static landing page for social media training course.
+              </p>
+              <p>
+                <span class="bold-paragraph">Technologies:</span> <br />
+                HTML / CSS / Javascript
+              </p>
+            </div>
+            <img
+              src="assets/images/project-tiles/smm-course/hero-image.png"
+              class="project-tile-image"
+            />
+            <img
+              src="assets/images/project-tiles/smm-course/corner-gradient.png"
+              id="smm-course-corner-gradient"
+            />
+            <img
+              src="assets/images/project-tiles/smm-course/blue-element.png"
+              id="smm-course-blue-element"
+            />
+            <img
+              src="assets/images/project-tiles/smm-course/outbound-btn-black.png"
+              class="outbound-btn-black"
+            />
+          </article>
+        </a>
+        <a
+          href="https://badgerwannabe.github.io/rocket-sockets/"
+          target="_blank"
+          ><article class="project-item" id="rocket-sockets-project">
+            <div class="content-border">
+              <h3>Rocket Sockets</h3>
+              <p>
+                <span class="bold-paragraph">Description:</span> <br />
+                Static landing page for imaginary rock band.
+              </p>
+              <p>
+                <span class="bold-paragraph">Technologies:</span> <br />
+                HTML / CSS / Javascript
+              </p>
+            </div>
+            <img
+              src="assets/images/project-tiles/rocket-sockets/hero-image.png"
+              class="project-tile-image"
+            />
+            <img
+              src="assets/images/project-tiles/rocket-sockets/pulse-line.png"
+              id="pulse-image"
+            />
+            <img
+              src="assets/images/project-tiles/rocket-sockets/outbound-btn-white.png"
+              class="outbound-btn-white"
+            />
+            <div id="rocket-sockets-black-side"></div>
+          </article>
+        </a>
+      </section>
+      <section id="about-me-section" data-index="2" class="about">
+        <div id="about-image-buttons">
+          <img id="about-me-image" src="assets/images/profile-pic.jpg" />
+        </div>
+
+        
+        <div id="about-me-skills">
+          <ul>
+            <img src="assets/images/tech-icon.svg" >
+            <h4>Technologies</h4>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>GraphQL</li>
+            <li>API</li>
+          </ul>
+          <ul>
+            <img src="assets/images/tools-icon.svg" >
+            <h4>Design / Dev Tools</h4>
+            <li>Figma</li>
+            <li>Adobe Illustrator</li>
+            <li>Adobe XD</li>
+            <li>Postman</li>
+            <li>Git/GitHub</li>
+            <li>MongoDB</li>
+            <li>Wordpress</li>
+            <li>Google Tag Manager</li>
+          </ul>
+          <ul>
+            <img src="assets/images/personality-icon.svg" >
+            <h4>Personality</h4>
+            <li>Patience</li>
+            <li>Consultative skills</li>
+            <li>Accountability</li>
+            <li>Avid learner</li>
+          </ul>
+        </div>
+       
+        </div>
+
+        <div id="about-me-buttons">
+          <button class="info-btn">Contact me</button>
+          <button class="info-btn">See my CV</button>
+          <button class="about-social-btn"><img style="vertical-align: middle;" src="assets/images/linkedin-round.svg"> <p style="display: inline; vertical-align: middle;">My Linkedin</p> </button>
+          <button class="about-social-btn"><img style="vertical-align: middle;" src="assets/images/github-round.svg"> <p style="display: inline; vertical-align: middle;"></p>My GitHub</button>
+        </div>
+
+        <div id="about-me-text-image">
+          <div id="about-text">
+            <h1>Few words about myself</h1>
+
+            <p>
+              I am a Frontend Developer with an enthusiasm for clear, intiutive
+              layouts, fun animations and interactive user experience.
+            </p>
+
+            <p>
+              Thanks to my experiences in design, project management and digital
+              marketing I am able to see the full picture and deliver you
+              top-notch services.
+            </p>
+          </div>
+
+      </section>
+
+      <section id="contact-section" data-index="3" class="contact">
+        <div id="contact-form-div">
+          <div id="contact-form-content">
+            <h2>Let's talk</h2>
+            <p>
+              There is a reason why you are here - let me hear it and I will
+              help you.
+            </p>
+            <p class="bold-paragraph">Reach out using form below.</p>
+            <form>
+              <div class="form-control">
+                <label for="email">Your email</label>
+                <input type="email" name="email" />
+              </div>
+              <div class="form-control">
+                <label for="subject">Subject</label>
+                <input type="text" name="subject" />
+              </div>
+              <div class="form-control">
+                <label for="message">Your message</label>
+                <textarea
+                  type="text"
+                  name="message"
+                  rows="5"
+                  cols="33"
+                ></textarea>
+              </div>
+              <button id="contact-submit" type="submit">Send away</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="contact-additional">
+          <div id="gif-wrapper">
+            <div id="gif-canvas"></div>
+            <h3>
+              As a token of our new acquaintance - here is a random cat GIF for
+              you*
+            </h3>
+            <!-- 
+            <form>
+              <input
+                id="searchGifInput"
+                type="text"
+                name="gif-search"
+                placeholder="Put your search query"
+              />
+              <button id="new-gif" type="submit">
+                Get yourself a random gif
+              </button>
+            </form> -->
+
+            <button id="random-cat">NEW CAT</button>
+          </div>
+
+          <!-- <h2>Find me and my work here</h2>
+          <ul id="social-contact-section" class="social-links">
+            <li>
+              <img class="social-icon" src="./assets/images/Instagram.png" />
+            </li>
+            <li>
+              <img class="social-icon" src="./assets/images/Linkedin.png" />
+            </li>
+            <li>
+              <img class="social-icon" src="./assets/images/Behance.png" />
+            </li>
+            <li>
+              <img class="social-icon" src="./assets/images/Dribbble.png" />
+            </li>
+            <li>
+              <img class="social-icon" src="./assets/images/Pinterest.png" />
+            </li>
+          </ul> -->
+
+          <p id="disclaimer">*courtesy of Giphy API</p>
+          <p id="copyright-info">Designed and created by Dmytro Zozulia ©</p>
+        </div>
+      </section>
+    </main>
+    <script>
+      anime({
+        targets: "#animated-ball polygon",
+        // translateX: 250,
+        points:
+          "193.716 108.008 152.015 166.191 77.141 190.204 18.49 179.12 10.76 96.85 56.267 49.443 170.54 10.91 193.716 108.008",
+        baseFrequency: 0,
+        scale: 1,
+        loop: true,
+        direction: "alternate",
+        easing: "easeInOutExpo",
+      });
+    </script>
+
+    <script src="assets/js/app.js" async defer></script>
+  </body>
+</html>
