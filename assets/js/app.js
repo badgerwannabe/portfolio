@@ -1,100 +1,3 @@
-//Animation
-//1. 4 cards appear 1 by 1
-//2. background with navbar appears behind them, cards decrease in size
-//3. additional block appear above and below the canvas
-
-const animationCanvas = document.querySelector("#main-image-animation");
-
-function addTitleBarBtns(canvas) {
-  const buttonCoords = [
-    [
-      "M27,15.13a2.46,2.46,0,1,1-2.46-2.45A2.46,2.46,0,0,1,27,15.13Z",
-      "#ffc3d0",
-    ],
-    [
-      "M36.84,15.13a2.46,2.46,0,1,1-2.46-2.45A2.46,2.46,0,0,1,36.84,15.13Z",
-      "#f5d79b",
-    ],
-    [
-      "M46.65,15.13a2.46,2.46,0,1,1-2.46-2.45A2.46,2.46,0,0,1,46.65,15.13Z",
-      "#6aebe7",
-    ],
-  ];
-
-  const titleBarBtns = document.createElement("div");
-  titleBarBtns.classList.add("title-bar-btns-container");
-  canvas.appendChild(titleBarBtns);
-
-  buttonCoords.forEach((btn, index) => {
-    const testVar = "item";
-    const i = 0;
-    let test = eval("var " + testVar + index + "=" + i + ";");
-    test = btn[0];
-    console.log(test);
-
-    const iconSvg = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "svg"
-    );
-    const iconPath = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "path"
-    );
-
-    iconSvg.classList.add("title-bar-btns");
-
-    iconSvg.setAttribute("fill", "none");
-    iconSvg.setAttribute("viewBox", "0 0 336.7 211.87");
-
-    // iconSvg.classList.add('post-icon');
-
-    iconPath.setAttribute("d", btn[0]);
-    iconPath.setAttribute("fill", btn[1]);
-
-    iconSvg.appendChild(iconPath);
-    titleBarBtns.appendChild(iconSvg);
-
-    return titleBarBtns.appendChild(iconSvg);
-  });
-}
-
-const allElements = [
-  "assets/images/hero-imag/animation-top-bar.svg",
-  "assets/images/hero-imag/animation-profile-pic.svg",
-  "assets/images/hero-imag/animation-bottom-bar.svg",
-  "assets/images/hero-imag/animation-little-bar.svg",
-];
-
-const addElement = function (top, right, bottom, left, width, element) {
-  let elementCreated = document.createElement("img");
-  elementCreated.setAttribute("src", element);
-  elementCreated.setAttribute(
-    "style",
-    `position:absolute; top:${top}; width: ${width}; left: ${left}; right: ${right}; bottom:${bottom}; margin-bottom:2rem;`
-  );
-  animationCanvas.appendChild(elementCreated);
-};
-
-setTimeout(() => {
-  addTitleBarBtns(animationCanvas);
-  anime({
-    targets: ".title-bar-btns-container",
-    opacity: 1,
-    baseFrequency: 0,
-    easing: "easeInOutExpo",
-  });
-
-  anime({
-    targets: "#animation-code-block",
-    translateX: 250,
-  });
-
-  addElement("7rem", "auto", "auto", "auto", "85%", allElements[0]);
-  addElement("-3rem", "-5rem", "auto", "auto", "40%", allElements[1]);
-  addElement("auto", "-3rem", "-4rem", "auto", "65%", allElements[2]);
-  addElement("auto", "auto", "-6rem", "-2rem", "35%", allElements[3]);
-}, 3000);
-
 //intersection observer
 
 // let projectSection = document.querySelector("#projects-section");
@@ -199,7 +102,7 @@ menuLinks.forEach((selectedLink) => {
 
 const ShowGifs = () => {
   let inputValue = document.querySelector("#searchGifInput");
-  let submitButton = document.querySelector("#gif-wrapper button");
+  let submitButton = document.querySelector("#new-gif");
   let getCatBtn = document.querySelector("#random-cat");
   let searchTag;
 
@@ -280,7 +183,7 @@ const ShowGifs = () => {
   const makeGif = async function (url) {
     const newGifUrl = await getGifs(url);
     gifWrapper.style.background = `url("${newGifUrl}")`;
-    gifWrapper.style.backgroundPosition = "center";
+    gifWrapper.style.backgroundPosition = "right";
     gifWrapper.style.backgroundRepeat = "no-repeat";
     gifWrapper.style.backgroundSize = "contain";
   };
@@ -293,3 +196,12 @@ const ShowGifs = () => {
 };
 
 window.onload = ShowGifs();
+
+// document.addEventListener("DOMContentLoaded", function (event) {
+//   var scrollpos = localStorage.getItem("scrollpos");
+//   if (scrollpos) window.scrollTo(0, scrollpos);
+// });
+
+// window.onbeforeunload = function (e) {
+//   localStorage.setItem("scrollpos", window.scrollY);
+// };
