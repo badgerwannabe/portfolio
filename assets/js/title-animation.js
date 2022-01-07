@@ -192,7 +192,6 @@ let animateRightLines = anime.timeline({
 
 const drawLinesAnime = function (lines, timeline) {
   lines.forEach((el, index) => {
-    console.log(lines.length);
     let multiplier = 50 * index;
     let deblay;
 
@@ -212,7 +211,7 @@ const drawLinesAnime = function (lines, timeline) {
     } else {
       multiplier = 800;
       deblay = 800;
-      console.log("here");
+
       anime({
         targets: ".big-text-block .short-yel-line",
         width: "60%",
@@ -266,9 +265,12 @@ anime({
   duration: 1500,
   opacity: 1,
 });
+
+//card elements animation
+
 anime({
   targets: ".circle",
-  translateY: -60,
+  translateY: "-135%",
   opacity: 1,
   // loop: true,
   direction: "normal",
@@ -278,7 +280,7 @@ anime({
 });
 anime({
   targets: ".short-white-line",
-  translateY: 60,
+  translateY: "2205%",
   opacity: 1,
   // loop: true,
   direction: "normal",

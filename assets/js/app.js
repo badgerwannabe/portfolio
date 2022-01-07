@@ -1,16 +1,10 @@
 //intersection observer
 
-// let projectSection = document.querySelector("#projects-section");
-// let heroSection = document.querySelector("#hero-section");
-// let aboutSection = document.querySelector("#about-me-section");
-let sectionHeading = document.querySelector("#sectionHeading");
-let sectionHeadingText = document.querySelector("#sectionHeading h1");
 let contactSection = document.querySelector("#contact-section");
 let sections = document.querySelectorAll("section");
-
-const options = {
-  threshold: 0.7,
-};
+let headerAll = document.querySelector("header");
+let logoTxt = document.querySelector("#top-logo-text");
+const menuLinks = document.querySelectorAll("#nav-menu li");
 
 // (F) function to set animation to menu and to create a heading
 
@@ -21,44 +15,27 @@ const animateMenu = function (className) {
     if (neededLink.innerText === "Home") {
       menuLinks.forEach((link) => {
         link.classList.remove("selected");
-      });
 
-      sectionHeading.classList.remove("shown");
+        headerAll.classList.remove("scrolled");
+
+        logoTxt.classList.remove("scrolled");
+      });
     } else {
+      headerAll.classList.add("scrolled");
+      logoTxt.classList.add("scrolled");
+
       menuLinks.forEach((link) => {
-        if (link === neededLink) {
+        if (link === !neededLink) {
         } else {
           link.classList.remove("selected");
+          neededLink.classList.add("selected");
         }
       });
-      if (sectionHeading.classList.contains("hidden")) {
-        sectionHeadingText.innerText = neededLink.innerText;
-        sectionHeading.classList.add("shown");
-      }
-
-      // console.log(neededLink.innerText);
-      neededLink.classList.add("selected");
     }
   }
 };
 
-let observer = new IntersectionObserver(function (entries, observer) {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const className = entry.target.className;
-      const activeAnchor = document.querySelector(`[data-page=${className}]`);
-      let menuItem = entry.target.getAttribute("data-index");
-
-      animateMenu(className);
-    }
-  });
-}, options);
-
-sections.forEach((section) => {
-  observer.observe(section);
-});
-
-const menuLinks = document.querySelectorAll("#nav-menu li");
+///add event listener for each Menu Link
 
 menuLinks.forEach((selectedLink) => {
   selectedLink.addEventListener("click", function (e) {
@@ -71,7 +48,6 @@ menuLinks.forEach((selectedLink) => {
     const scrollToSection = function (classito) {
       let selectedMenu = e.target.innerText;
 
-      console.log(e.target);
       sections.forEach((section) => {
         let neededSectionText = section.className;
         if (neededSectionText === classito) {
@@ -96,6 +72,27 @@ menuLinks.forEach((selectedLink) => {
 
     scrollToSection(classito);
   });
+});
+
+//Define observer to observe sections
+
+const options = {
+  threshold: 0.5,
+};
+
+let observer = new IntersectionObserver(function (entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const className = entry.target.className;
+      const activeAnchor = document.querySelector(`[data-page=${className}]`);
+      let menuItem = entry.target.getAttribute("data-index");
+      animateMenu(className);
+    }
+  });
+}, options);
+
+sections.forEach((section) => {
+  observer.observe(section);
 });
 
 //GIF fetching - searching part
