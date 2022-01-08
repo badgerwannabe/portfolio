@@ -88,6 +88,7 @@ let observer = new IntersectionObserver(function (entries, observer) {
       let menuItem = entry.target.getAttribute("data-index");
       animateMenu(className);
     }
+    observer.unobserve();
   });
 }, options);
 
@@ -180,7 +181,7 @@ const ShowGifs = () => {
   const makeGif = async function (url) {
     const newGifUrl = await getGifs(url);
     gifWrapper.style.background = `url("${newGifUrl}")`;
-    gifWrapper.style.backgroundPosition = "right";
+    gifWrapper.style.backgroundPosition = "center";
     gifWrapper.style.backgroundRepeat = "no-repeat";
     gifWrapper.style.backgroundSize = "contain";
   };
