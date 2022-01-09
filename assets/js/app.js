@@ -4,7 +4,11 @@ let contactSection = document.querySelector("#contact-section");
 let sections = document.querySelectorAll("section");
 let headerAll = document.querySelector("header");
 let logoTxt = document.querySelector("#top-logo-text");
+
 const menuLinks = document.querySelectorAll("#nav-menu li");
+
+const menuBtn = document.querySelector(".menu-btn");
+const sideMenu = document.querySelector("#nav-menu");
 
 // (F) function to set animation to menu and to create a heading
 
@@ -41,6 +45,8 @@ menuLinks.forEach((selectedLink) => {
   selectedLink.addEventListener("click", function (e) {
     e.preventDefault();
     let classito = selectedLink.getAttribute("data-page");
+    console.log(classito);
+
     animateMenu(classito);
 
     //scroll into view
@@ -88,7 +94,6 @@ let observer = new IntersectionObserver(function (entries, observer) {
       let menuItem = entry.target.getAttribute("data-index");
       animateMenu(className);
     }
-    observer.unobserve();
   });
 }, options);
 
@@ -203,3 +208,28 @@ window.onload = ShowGifs();
 // window.onbeforeunload = function (e) {
 //   localStorage.setItem("scrollpos", window.scrollY);
 // };
+
+//RESPONSIVE NAVBAR
+
+const navSlide = () => {
+  //burger menu vars
+
+  const navLinks = menuLinks;
+  menuBtn.addEventListener("click", () => {
+    sideMenu.classList.toggle("menu-active");
+
+    navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = "";
+      } else {
+        link.style.animation = `navLinkFade 0.5s ease forwards ${
+          index / 7 + 0.5
+        }s`;
+      }
+    });
+
+    menuBtn.classList.toggle("toggle");
+  });
+};
+
+navSlide();
