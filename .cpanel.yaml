@@ -2,5 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/cityvxrm/portfolio
-    - /bin/cp index.html $DEPLOYPATH
-    - /bin/cp -R assets $DEPLOYPATH
+    - / index.html $DEPLOYPATH
+    - /-R assets $DEPLOYPATH
