@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" type="image/svg" href="./assets/images/DZ.svg">
     <title>Dmytro Zozulia Portfolio</title>
     <meta name="description" content="portfolio website for Dmytro Zozulia" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,16 +17,17 @@
     ></script>
   </head>
   <body>
-    <header>
-      <h3 id="top-logo-text" >DZ</h3>
+    <header class="navbar">
+      <a href="/index.html" >      <h3 id="top-logo-text" >DZ</h3></a>
 
 
-      <ul id="nav-menu">
-        <li data-page="home"><p>Home</p></li>
-        <li data-page="projects"><p>Projects</p></li>
-        <li data-page="about"><p>About</p></li>
-        <li data-page="contact"><p>Contact</p></li>
-        <li data-page="bonus"><p>Bonus</p></li>
+
+      <ul id="nav-menu" class="navbar">
+        <li data-page="home"><p class="par-menu">Home</p></li>
+        <li data-page="projects"><p class="par-menu">Projects</p></li>
+        <li data-page="about"><p class="par-menu">About</p></li>
+        <li data-page="contact"><p class="par-menu">Contact</p></li>
+        <li data-page="bonus"><p class="par-menu">Bonus</p></li>
       </ul>
       <div class="menu-btn">
         <div class="menu-btn_line1"></div>
@@ -440,16 +442,19 @@
       <button id="random-cat">NEW RANDOM CAT</button>
       <p>Also search for a GIF you like*</p>
           <form>
+            
             <input
               id="searchGifInput"
               type="text"
               name="gif-search"
               placeholder="Enter your GIF search query"
             />
+           
             <button id="new-gif" type="submit">
         <img src="assets/images/Search.svg">
             </button>
           </form>
+          <sub class="warning-text"></sub>
           <sub>*courtesy of GIPHY API, resulting GIF is selected at random</sub>
 
         </div>
@@ -464,8 +469,8 @@
         Find me also  here:
       </h4>
       <div class="social-btns">
-        <a href="linkedin.com"><img src="assets/images/linkedin-round.svg"> Linkedin</a>
-        <a href="github.com"><img src="assets/images/github-round.svg">Github</a>
+        <a href="https://www.linkedin.com/in/dmytro-zozulia-595845108/" target="_blank"><img src="assets/images/linkedin-round.svg"> Linkedin</a>
+        <a href="https://github.com/badgerwannabe" target="_blank"><img src="assets/images/github-round.svg">Github</a>
       </div>
     
   </div>
@@ -476,19 +481,7 @@
  
   </footer>
     </main>
-    <script>
-      anime({
-        targets: "#animated-ball polygon",
-        // translateX: 250,
-        points:
-          "193.716 108.008 152.015 166.191 77.141 190.204 18.49 179.12 10.76 96.85 56.267 49.443 170.54 10.91 193.716 108.008",
-        baseFrequency: 0,
-        scale: 1,
-        loop: true,
-        direction: "alternate",
-        easing: "easeInOutExpo",
-      });
-    </script>
+  <script src="assets/js/bonus-gif.js"  async defer></script>
 
     <script src="assets/js/title-animation.js" async defer></script>
     <script src="assets/js/app.js" async defer></script>

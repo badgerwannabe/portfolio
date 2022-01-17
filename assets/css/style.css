@@ -115,6 +115,10 @@ header.scrolled {
   border-radius: 5px;
 }
 
+.navbar a {
+  color: var(--background-clr);
+  text-decoration: none;
+}
 #top-logo-text {
   margin-left: 6rem;
   text-transform: uppercase;
@@ -876,7 +880,7 @@ header.scrolled {
   border-radius: 10px;
   display: flex;
   align-items: center;
-
+  cursor: pointer;
   text-align: start;
 }
 .about-contact img {
@@ -968,6 +972,7 @@ header.scrolled {
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-top: 5rem;
 }
 
 .contact-title-line {
@@ -975,7 +980,7 @@ header.scrolled {
   background: var(--primary-clr);
   height: 10px;
   position: absolute;
-  top: 3rem;
+  top: 7.5rem;
 }
 
 .contact-title-line:nth-child(1) {
@@ -1033,7 +1038,7 @@ header.scrolled {
   font-weight: 300;
 }
 #contact-form-div form {
-  margin-top: 3rem;
+  margin-top: 1.5rem;
   width: 100%;
 }
 
@@ -1082,7 +1087,7 @@ button#contact-submit {
   font-size: 1.2rem;
   font-weight: 800;
   padding: 1.25rem 6rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
   left: 50%;
   position: relative;
   transform: translateX(-50%);
@@ -1186,6 +1191,9 @@ button#contact-submit {
 }
 #new-gif:hover {
   cursor: pointer;
+}
+.warning-text {
+  color: red;
 }
 
 /* CONTACT SECTION --- END */
@@ -1378,7 +1386,7 @@ footer a {
 }
 
 #about-me-section {
-  padding: 10rem 0;
+  padding: 10rem 0 5rem;
 }
 
 .section-title-about {
@@ -1609,7 +1617,7 @@ footer a {
   /* ABOUT SECTION */
 
   #about-me-section {
-    padding: 5rem 0 10rem 0;
+    padding: 5rem 0 5rem 0;
   }
 
   .about-left {
@@ -1661,7 +1669,7 @@ footer a {
   .contact-title-line {
     height: 7px;
 
-    top: 2rem;
+    top: 6.5rem;
   }
 
   #contact-form-div {
@@ -2550,7 +2558,6 @@ footer a {
   }
   .contact-title-line {
     height: 5px;
-    top: 1.5rem;
     width: 25%;
   }
 }
@@ -2876,6 +2883,9 @@ footer a {
     color: var(--light-text-clr);
     border: 2px solid var(--light-text-clr);
   }
+  #top-logo-text.scrolled {
+    border: 2px solid var(--light-text-clr);
+  }
   #nav-menu {
     position: absolute;
     right: 0;
@@ -2939,17 +2949,44 @@ footer a {
     background-color: var(--dark-text-clr);
   }
 
+  /* PROJECTS  */
+
+  .projects {
+    padding: 3rem 0 3rem 0;
+  }
+  .project-item {
+    max-width: 90%;
+  }
+  .project-browser img {
+    max-width: 100%;
+  }
   .project-mobile {
     top: -1rem;
-    right: -6rem;
+
+    right: -12rem;
   }
-  .project-mobile img {
-    max-width: 40%;
+  .section-title-projects {
+    width: 10%;
+    top: -47%;
+    transform: rotate(270deg);
+    right: auto;
+    left: 50%;
+    /* display: none; */
+  }
+  .project-info {
+    max-width: 100%;
+  }
+  /* ABOUT  */
+
+  #about-me-section {
+    padding: 7rem 0;
+  }
+  .section-title-about {
+    right: auto;
+    left: 50%;
+    top: -42%;
   }
 
-  .about-right {
-    margin-top: 1rem;
-  }
   .about-me-skills {
     display: flex;
     flex-direction: column;
@@ -2959,6 +2996,10 @@ footer a {
     border: none;
     width: 100%;
   }
+  .about-left {
+    justify-content: flex-start;
+  }
+
   .skill-item {
     flex-direction: row;
     border: none;
@@ -2978,13 +3019,28 @@ footer a {
     justify-content: center;
     align-self: flex-end;
     justify-self: flex-end;
-    /* border-radius: 10px; */
   }
   .skill-icon {
     padding-bottom: 1rem;
     justify-self: center;
     align-self: center;
   }
+
+  .about-me-image {
+    width: 60%;
+    right: auto;
+    position: absolute;
+    top: auto;
+    right: -4rem;
+  }
+  .about-text {
+    font-size: 0.75rem;
+    width: 50%;
+    top: 0;
+    left: 0rem;
+  }
+
+  /* CONTACT */
 
   #contact-section {
     justify-content: center;
@@ -3095,31 +3151,6 @@ footer a {
     background: none;
   }
   /* PROJECTS */
-  .projects {
-    padding: 3rem 0 3rem 0;
-  }
-  .project-item {
-    max-width: 90%;
-  }
-  .project-browser img {
-    max-width: 100%;
-  }
-  .project-mobile {
-    top: -1rem;
-
-    right: -12rem;
-  }
-  .section-title-projects {
-    width: 10%;
-    top: -50%;
-    transform: rotate(270deg);
-    right: auto;
-    left: 50%;
-    /* display: none; */
-  }
-  .project-info {
-    max-width: 100%;
-  }
 
   /* ABOUT */
   #about-me-section {

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank you</title>
+
+    <style>
+      :root {
+        --primary-clr: #e5fd05;
+        --secondary-clr: #7980dc;
+        --background-clr: #031946;
+        --alt-background-clr: #2b2b4a;
+        --dark-text-clr: #000;
+        --light-text-clr: #fff;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        color: var(--light-text-clr);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .thank-you-container {
+        background-color: var(--background-clr);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        max-width: 100%;
+      }
+
+      .redirect-request {
+        display: flex;
+        background-color: white;
+        font-size: 1.8rem;
+        margin: 2rem;
+        padding: 1rem 3rem;
+        align-self: flex-end;
+      }
+      .content-container {
+        padding: 10rem;
+        display: flex;
+        flex-direction: column;
+      }
+      .content-container h1 {
+        font-size: 4rem;
+      }
+      .content-container p {
+        font-size: 1.8rem;
+        font-weight: 200;
+      }
+      .auto-redirect {
+        align-self: stretch;
+        padding: 5rem 10rem;
+        background-color: var(--dark-text-clr);
+        justify-content: stretch;
+        display: flex;
+        flex-direction: column;
+      }
+      .progress-bar-container {
+        background-color: var(--alt-background-clr);
+        height: 8px;
+        width: 100%;
+        margin: 2rem 0;
+        position: relative;
+      }
+      .progress-bar {
+        background-color: var(--primary-clr);
+        height: 8px;
+        width: 0%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        animation-name: progressToRedirect;
+        animation-duration: 5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+      }
+
+      @keyframes progressToRedirect {
+        0% {
+          width: 0%;
+        }
+
+        100% {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="thank-you-container">
+      <button class="redirect-request">Redirect now</button>
+
+      <div class="content-container">
+        <h1>Thank you for reaching out.</h1>
+        <p>
+          Once I get your message I will contact you back. Meanwhile, let me
+          redirect you to portfolio
+        </p>
+      </div>
+      <div class="auto-redirect">
+        <h3>Redirect in <span class="time-left">5s</span></h3>
+        <div class="progress-bar-container">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      console.log(window.location.href);
+      setTimeout(() => {
+        window.location.href = "https://www.badgerwannabe.site";
+        location.replace();
+        location.reload(true);
+      }, 6000);
+
+      const redirectBtn = document.querySelector(".redirect-request");
+
+      redirectBtn.addEventListener("click", (e) => {
+        window.location.href = "https://www.badgerwannabe.site";
+        location.replace();
+        location.reload(true);
+      });
+
+      var timeleft = 5;
+      var downloadTimer = setInterval(function () {
+        if (timeleft <= 0) {
+          clearInterval(downloadTimer);
+          document.querySelector(".time-left").innerHTML = "0s";
+        } else {
+          document.querySelector(".time-left").innerHTML = timeleft + "s";
+        }
+        timeleft -= 1;
+      }, 1000);
+    </script>
+  </body>
+</html>

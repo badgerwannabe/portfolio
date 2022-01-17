@@ -1,17 +1,25 @@
-//intersection observer
+//VARIABLES
 
-let contactSection = document.querySelector("#contact-section");
-let sections = document.querySelectorAll("section");
-let headerAll = document.querySelector("header");
-let logoTxt = document.querySelector("#top-logo-text");
+//sections
 
+const contactSection = document.querySelector("#contact-section");
+const projectSection = document.querySelector(".projects");
+const sections = document.querySelectorAll("section");
+
+//header elements
+const headerAll = document.querySelector("header");
+const logoTxt = document.querySelector("#top-logo-text");
 const menuLinks = document.querySelectorAll("#nav-menu li");
-
 const menuBtn = document.querySelector(".menu-btn");
 const sideMenu = document.querySelector("#nav-menu");
 
-// (F) function to set animation to menu and to create a heading
+//body elements
+const homeTextBtn = document.querySelector("#home-text button");
+const contactBtn = document.querySelector(".about-contact");
 
+//FUNCTIONS
+
+//Menu animation function
 const animateMenu = function (className) {
   if (className) {
     let neededLink = document.querySelector(`li[data-page=${className}]`);
@@ -39,48 +47,84 @@ const animateMenu = function (className) {
   }
 };
 
-///add event listener for each Menu Link
+//Adjusted scroll to target for 120px
 
+function scrollToTargetAdjusted(element) {
+  // var headerOffset = 120;
+  // var elementPosition = element.getBoundingClientRect().top;
+  // var offsetPosition = elementPosition - headerOffset;
+
+  const offset = 100;
+  const bodyRect = document.body.getBoundingClientRect().top;
+  const elementRect = element.getBoundingClientRect().top;
+  const elementPosition = elementRect - bodyRect;
+  const offsetPosition = elementPosition - offset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: "smooth",
+  });
+}
+
+//scroll into view
+const scrollToSection = function (classito, e) {
+  let selectedMenu = e.target.innerText;
+  let viewportWidth = window.innerWidth;
+
+  sections.forEach((section) => {
+    let neededSectionText = section.className;
+
+    if (neededSectionText === classito) {
+      if (neededSectionText !== "home") {
+        if (viewportWidth < 486) {
+          console.log("it is true");
+          scrollToTargetAdjusted(section);
+
+          // sideMenu.classList.toggle("menu-active");
+          // linksAppear();
+          // menuBtn.classList.toggle("toggle");
+        } else {
+          section.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "nearest",
+          });
+        }
+      } else {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest",
+        });
+        if (window.innerWidth < 486) {
+          sideMenu.classList.toggle("menu-active");
+          linksAppear();
+          menuBtn.classList.toggle("toggle");
+        }
+      }
+    }
+  });
+
+  // console.log(selectedMenu);
+};
+
+/// EVENT LISTENERS
+
+//  menu link click listeners
 menuLinks.forEach((selectedLink) => {
   selectedLink.addEventListener("click", function (e) {
     e.preventDefault();
     let classito = selectedLink.getAttribute("data-page");
-    console.log(classito);
+
+    // console.log(classito);
 
     animateMenu(classito);
 
-    //scroll into view
-
-    const scrollToSection = function (classito) {
-      let selectedMenu = e.target.innerText;
-
-      sections.forEach((section) => {
-        let neededSectionText = section.className;
-        if (neededSectionText === classito) {
-          if (neededSectionText !== "home") {
-            section.scrollIntoView({
-              behavior: "smooth",
-              block: "center",
-              inline: "nearest",
-            });
-          } else {
-            section.scrollIntoView({
-              behavior: "smooth",
-              block: "end",
-              inline: "nearest",
-            });
-          }
-        }
-      });
-
-      // console.log(selectedMenu);
-    };
-
-    scrollToSection(classito);
+    scrollToSection(classito, e);
   });
 });
 
-//Define observer to observe sections
+//Intersection observer to observe sections
 
 const options = {
   threshold: 0.5,
@@ -101,135 +145,74 @@ sections.forEach((section) => {
   observer.observe(section);
 });
 
-//GIF fetching - searching part
-
-const ShowGifs = () => {
-  let inputValue = document.querySelector("#searchGifInput");
-  let submitButton = document.querySelector("#new-gif");
-  let getCatBtn = document.querySelector("#random-cat");
-  let searchTag;
-
-  submitButton.addEventListener("click", function (e) {
-    searchForGif(e);
-  });
-  getCatBtn.addEventListener("click", function (e) {
-    makeGif(giphyURL);
-  });
-
-  function searchForGif(e) {
-    e.preventDefault();
-
-    if (inputValue.value === "") {
-      console.log("you need to input something");
-    } else {
-      searchTag = inputValue.value;
-      console.log(searchTag);
-
-      const giphy1 = {
-        baseURL: "https://api.giphy.com/v1/gifs/random",
-        apiKey: "mGmrfDbbOIgMoIxqwsuGSFUDPh1XRDwU",
-        tag: searchTag,
-        type: "gif",
-        limit: 1,
-        rating: "g",
-      };
-
-      let giphyURL1 = encodeURI(
-        giphy1.baseURL +
-          "?api_key=" +
-          giphy1.apiKey +
-          "&tag=" +
-          giphy1.tag +
-          "&rating=" +
-          giphy1.rating
-      );
-
-      makeGif(giphyURL1);
-    }
-  }
-
-  const giphy = {
-    baseURL: "https://api.giphy.com/v1/gifs/random",
-    apiKey: "mGmrfDbbOIgMoIxqwsuGSFUDPh1XRDwU",
-    tag: "cute+cat",
-    type: "gif",
-    limit: 1,
-    rating: "g",
-  };
-
-  let giphyURL = encodeURI(
-    giphy.baseURL +
-      "?api_key=" +
-      giphy.apiKey +
-      "&tag=" +
-      giphy.tag +
-      "&rating=" +
-      giphy.rating
-  );
-
-  // console.log(giphyURL + " is the url from where fetch gets data");
-
-  const getGifs = async function (url) {
-    //fetch data
-    // console.log(url);
-    const response = await fetch(url);
-    const gifs = await response.json();
-    const bestData = gifs.data.images.original.url;
-    //catch error
-    //serve backup gif and remove button
-    return bestData;
-  };
-
-  let gifWrapper = document.querySelector("#gif-canvas");
-  let newGifButton = document.querySelector("#new-gif");
-
-  const makeGif = async function (url) {
-    const newGifUrl = await getGifs(url);
-    gifWrapper.style.background = `url("${newGifUrl}")`;
-    gifWrapper.style.backgroundPosition = "center";
-    gifWrapper.style.backgroundRepeat = "no-repeat";
-    gifWrapper.style.backgroundSize = "contain";
-  };
-
-  makeGif(giphyURL);
-
-  // newGifButton.addEventListener("click", async function () {
-  //   makeGif(giphyURL);
-  // });
-};
-
-window.onload = ShowGifs();
-
-// document.addEventListener("DOMContentLoaded", function (event) {
-//   var scrollpos = localStorage.getItem("scrollpos");
-//   if (scrollpos) window.scrollTo(0, scrollpos);
-// });
-
-// window.onbeforeunload = function (e) {
-//   localStorage.setItem("scrollpos", window.scrollY);
-// };
-
 //RESPONSIVE NAVBAR
 
-const navSlide = () => {
-  //burger menu vars
-
+//responsive links appear
+const linksAppear = function () {
   const navLinks = menuLinks;
+  navLinks.forEach((link, index) => {
+    if (link.style.animation) {
+      link.style.animation = "";
+    } else {
+      link.style.animation = `navLinkFade 0.5s ease forwards ${
+        index / 7 + 0.5
+      }s`;
+    }
+  });
+};
+
+//responsive animation
+const navSlide = () => {
   menuBtn.addEventListener("click", () => {
     sideMenu.classList.toggle("menu-active");
-
-    navLinks.forEach((link, index) => {
-      if (link.style.animation) {
-        link.style.animation = "";
-      } else {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${
-          index / 7 + 0.5
-        }s`;
-      }
-    });
-
+    linksAppear();
     menuBtn.classList.toggle("toggle");
   });
 };
 
+let mainAll = document.querySelector("main");
+
+mainAll.addEventListener("click", (e) => {
+  console.log(e.target.className);
+  if (
+    !e.target.classList.contains("menu-active") &&
+    e.target.className !== "par-menu"
+  ) {
+    sideMenu.classList.remove("menu-active");
+    menuBtn.classList.remove("toggle");
+
+    if (window.innerWidth < 486) {
+      linksAppear();
+    }
+  }
+});
+
 navSlide();
+
+//home button scroll
+homeTextBtn.addEventListener("click", (e) => {
+  let viewportWidth = window.innerWidth;
+  if (viewportWidth < 486) {
+    scrollToTargetAdjusted(projectSection);
+  } else {
+    projectSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  }
+});
+
+//contact-btn scroll
+contactBtn.addEventListener("click", (e) => {
+  let viewportWidth = window.innerWidth;
+  if (viewportWidth < 486) {
+    scrollToTargetAdjusted(contactSection);
+  } else {
+    contactSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  }
+});
