@@ -22,47 +22,55 @@
       }
 
       body {
-        color: var(--light-text-clr);
+        /* background-color: var(--background-clr); */
         height: 100vh;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: stretch;
+        align-items: stretch;
+
         font-family: "Montserrat", sans-serif;
+        color: var(--light-text-clr);
       }
 
       .thank-you-container {
         background-color: var(--background-clr);
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: column;
-        max-width: 100%;
+        padding-left: 40rem;
+        outline: dashed red;
+        width: 100%;
       }
 
       .redirect-request {
         display: flex;
-        background-color: white;
-        font-size: 1.8rem;
-        margin: 2rem;
-        padding: 1rem 3rem;
-        align-self: flex-end;
+        border: 3px solid var(--light-text-clr);
+        background: none;
+        font-size: 1.5rem;
+        margin: 4rem 0;
+        padding: 0.75rem 2.5rem;
+        color: var(--light-text-clr);
+        border-radius: 5px;
       }
       .content-container {
-        padding: 10rem;
+        padding: 5rem 5rem 5rem 0;
         display: flex;
         flex-direction: column;
+        width: 50%;
       }
       .content-container h1 {
         font-size: 4rem;
+        margin: 2rem 0;
       }
       .content-container p {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-weight: 200;
       }
+
       .auto-redirect {
         align-self: stretch;
-        padding: 5rem 10rem;
-        background-color: var(--dark-text-clr);
+
         justify-content: stretch;
         display: flex;
         flex-direction: column;
@@ -97,12 +105,64 @@
           width: 100%;
         }
       }
+
+      @media screen and (max-width: 1650px) {
+        .thank-you-container {
+          padding-left: 30rem;
+        }
+      }
+      @media screen and (max-width: 1460px) {
+        .thank-you-container {
+          padding-left: 20rem;
+        }
+      }
+      @media screen and (max-width: 1300px) {
+        .content-container {
+          width: 70%;
+        }
+      }
+      @media screen and (max-width: 1029px) {
+        .thank-you-container {
+          padding-left: 10rem;
+        }
+        .content-container {
+          width: 100%;
+        }
+        .content-container h1 {
+          font-size: 2.5rem;
+          margin: 2rem 0;
+        }
+        .content-container p {
+          font-size: 1rem;
+        }
+
+        .redirect-request {
+          font-size: 1rem;
+        }
+        .content-container h1 {
+          font-size: 2rem;
+        }
+      }
+      @media screen and (max-width: 500px) {
+        .thank-you-container {
+          padding-left: 6rem;
+        }
+        .thank-you-container {
+          justify-content: space-around;
+        }
+      }
+      @media screen and (max-width: 381px) {
+        .thank-you-container {
+          padding-left: 3rem;
+        }
+        .content-container h1 {
+          font-size: 1.8rem;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="thank-you-container">
-      <button class="redirect-request">Redirect now</button>
-
       <div class="content-container">
         <h1>Thank you for reaching out.</h1>
         <p>
@@ -116,20 +176,20 @@
           <div class="progress-bar"></div>
         </div>
       </div>
+      <button class="redirect-request">Redirect now</button>
     </div>
 
     <script>
-      console.log(window.location.href);
+      const redirectBtn = document.querySelector(".redirect-request");
+
       setTimeout(() => {
         window.location.href = "https://www.badgerwannabe.site";
         location.replace();
         location.reload(true);
       }, 6000);
 
-      const redirectBtn = document.querySelector(".redirect-request");
-
       redirectBtn.addEventListener("click", (e) => {
-        window.location.href = "https://www.badgerwannabe.site";
+        window.location.href = "https://badgerwannabe.cityresident.site";
         location.replace();
         location.reload(true);
       });
