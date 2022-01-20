@@ -194,6 +194,7 @@ header.scrolled {
   margin: 2rem 0;
   font-weight: bolder;
   font-size: 1.8rem;
+  cursor: pointer;
 }
 
 #home-animation {
@@ -1092,6 +1093,7 @@ button#contact-submit {
   position: relative;
   transform: translateX(-50%);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 /* CONTACT SECTION --- END */
@@ -1163,7 +1165,7 @@ button#contact-submit {
   font-weight: 600;
   padding: 1rem 2.5rem;
   margin: 3rem 0;
-
+  cursor: pointer;
   position: relative;
 }
 

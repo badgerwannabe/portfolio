@@ -25,8 +25,7 @@ const ShowGifs = () => {
     if (inputValue.value === "") {
       warningText.innerText =
         "You search field is empty. Please enter your query";
-
-      console.log("you need to input something");
+      warningText.style = "display:block;";
     } else {
       searchTag = inputValue.value;
       console.log(searchTag);
