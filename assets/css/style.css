@@ -879,12 +879,13 @@ header.scrolled {
 }
 
 .about-contact:hover {
-    color:var(--light-text-clr);
-    background: var(--background-clr)
-  }
+
+     padding: 0.6rem 4rem 0.6rem 1rem;
+}
 
 .about-contact img {
   margin-right: 2rem;
+
 }
 
 .about-me-image {
@@ -1255,9 +1256,9 @@ footer {
   text-align: start;
   transition: all .4s ease-out;
 }
-.social-btns a:hover {
- color: var(--dark-text-clr);
- background: var(--light-text-clr);
+.social-btn-single:hover {
+border: 3px solid var(--primary-clr)
+
 }
 
 
@@ -1902,9 +1903,10 @@ footer a {
   .about-contact {
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
-
     border: 3px solid var(--background-clr);
   }
+
+
   .about-contact img {
     margin-right: 0.75rem;
     width: 20px;
