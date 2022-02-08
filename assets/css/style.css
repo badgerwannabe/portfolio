@@ -195,6 +195,12 @@ header.scrolled {
   font-weight: bolder;
   font-size: 1.8rem;
   cursor: pointer;
+  transition: all .4s ease-out;
+}
+#home-text button:hover{
+  color: var(--light-text-clr);
+  background-color: var(--background-clr);
+  
 }
 
 #home-animation {
@@ -371,20 +377,6 @@ header.scrolled {
 }
 
 .animation-items {
-  /* position: absolute;
-  left: 0px;
-  top: 0;
-  max-height: 100%;
-  display: block;
-  width: 100%;
-
-  margin-right: auto;
-  margin-left: auto; */
-  /* -webkit-perspective: 9999px;
-  perspective: 9999px; */
-  /* -webkit-transform: translate(0px, -50%) rotateX(55deg) rotateY(-3deg)
-          rotateZ(49deg);
-      transform: translate(0px, -50%) rotateX(55deg) rotateY(-3deg) rotateZ(49deg); */
   display: flex;
   opacity: 0;
 }
@@ -883,7 +875,14 @@ header.scrolled {
   align-items: center;
   cursor: pointer;
   text-align: start;
+  transition: all .4s ease-out;
 }
+
+.about-contact:hover {
+    color:var(--light-text-clr);
+    background: var(--background-clr)
+  }
+
 .about-contact img {
   margin-right: 2rem;
 }
@@ -1094,6 +1093,14 @@ button#contact-submit {
   transform: translateX(-50%);
   text-transform: uppercase;
   cursor: pointer;
+  transition: all .4s ease-in-out
+;
+}
+
+button#contact-submit:hover { 
+  background: #faeb00;
+   padding: 1.25rem 6.5rem;
+    font-size: 1.25rem;
 }
 
 /* CONTACT SECTION --- END */
@@ -1167,6 +1174,12 @@ button#contact-submit {
   margin: 3rem 0;
   cursor: pointer;
   position: relative;
+  transition: all .4s ease-out;
+}
+#random-cat:hover {
+  background: var(--primary-clr);
+  color: var(--dark-text-clr);
+ 
 }
 
 #gif-info form {
@@ -1190,9 +1203,15 @@ button#contact-submit {
   margin: 5px;
   top: 0;
   right: 0;
+    cursor: pointer;
+    transition: all .4s ease-out;
 }
+
+
 #new-gif:hover {
-  cursor: pointer;
+
+width: 95%;
+height: 95%;
 }
 .warning-text {
   color: red;
@@ -1234,7 +1253,14 @@ footer {
   display: flex;
   align-items: center;
   text-align: start;
+  transition: all .4s ease-out;
 }
+.social-btns a:hover {
+ color: var(--dark-text-clr);
+ background: var(--light-text-clr);
+}
+
+
 
 .social-btns a img {
   margin-right: 2rem;
@@ -2674,6 +2700,8 @@ footer a {
     font-size: 0.65rem;
     border: 2px solid var(--background-clr);
   }
+
+
 
   .about-me-skills {
     flex-direction: row;
