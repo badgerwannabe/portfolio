@@ -1211,8 +1211,7 @@ button#contact-submit:hover {
 
 #new-gif:hover {
 
-width: 95%;
-height: 95%;
+background: var(--secondary-clr)
 }
 .warning-text {
   color: red;
